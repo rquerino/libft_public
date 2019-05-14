@@ -6,45 +6,45 @@
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 11:51:11 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/14 14:44:58 by rquerino         ###   ########.fr       */
+/*   Updated: 2019/05/14 14:54:14 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_number_length(int n)
+static size_t	ft_number_length(int n)
 {
-	int len;
+	size_t		len;
 
 	len = 1;
-	if (n < 0)
-		len++;
-	while ((n /= 10))
+	while (n /= 10)
 		len++;
 	return (len);
 }
 
 char			*ft_itoa(int n)
 {
-	char	*str;
-	int		size;
-	int		neg;
+	char			*str;
+	size_t			size;
+	unsigned int	n_cpy;
 
-	neg = (n < 0) ? 1 : 0;
 	size = ft_number_length(n);
-	str = (char*)malloc(sizeof(char) * size);
-	if (str)
+	n_cpy = n;
+	if (n < 0)
 	{
-		str[size] = '\0';
-		size--;
-		while (size >= neg)
-		{
-			str[size] = n % 10 + '0';
-			n /= 10;
-			size--;
-		}
-		if (neg)
-			str[0] = '-';
+		n_cpy = -n;
+		size++;
 	}
+	if (!(str = ft_strnew(size)))
+		return (NULL);
+	str[size] = n_cpy % 10 + '0';
+	size--;
+	while (n_cpy /= 10)
+	{
+		str[size] = n_cpy % 10 + '0';
+		size--;
+	}
+	if (n < 0)
+		str[0] = '-';
 	return (str);
 }
