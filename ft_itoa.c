@@ -6,42 +6,45 @@
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 11:51:11 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/10 09:42:08 by rquerino         ###   ########.fr       */
+/*   Updated: 2019/05/14 14:44:58 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	number_size(int n)
+static int		ft_number_length(int n)
 {
-	int		i;
+	int len;
 
-	i = 0;
-	while (n >= 10)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i + 1);
+	len = 1;
+	if (n < 0)
+		len++;
+	while ((n /= 10))
+		len++;
+	return (len);
 }
 
-char		*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char	*str;
 	int		size;
-	int		copy;
+	int		neg;
 
-	size = number_size(n);
-	copy = n;
-	if (n < 0)
+	neg = (n < 0) ? 1 : 0;
+	size = ft_number_length(n);
+	str = (char*)malloc(sizeof(char) * size);
+	if (str)
 	{
-		copy = -n;
-		size++;
+		str[size] = '\0';
+		size--;
+		while (size >= neg)
+		{
+			str[size] = n % 10 + '0';
+			n /= 10;
+			size--;
+		}
+		if (neg)
+			str[0] = '-';
 	}
-	if (!(str = ft_strnew(size)))
-		return (NULL);
-	str[--size] = copy % 10 + '0';
-	if (n < 0)
-		*(str + 0) = '-';
 	return (str);
 }

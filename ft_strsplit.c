@@ -6,80 +6,72 @@
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 10:49:54 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/12 12:40:46 by rquerino         ###   ########.fr       */
+/*   Updated: 2019/05/14 11:17:18 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	word_count(char const *s, char c)
+static size_t	ft_word_count(const char *s, char c)
 {
-	int i;
-	int fl_final;
+	unsigned int	i;
+	size_t			count;
 
 	i = 0;
-	fl_final = 1;
-	while (*s)
+	count = 0;
+	while (s[i])
 	{
-		if (*s != c && fl_final)
-		{
+		if (s[i] != c)
+			count++;
+		while (s[i] != c && s[i + 1])
 			i++;
-			fl_final = 0;
-		}
-		else if (*s == c)
-			fl_final = 1;
-		s++;
+		i++;
 	}
-	return (c);
+	return (count);
 }
 
-static int	position_next_word(char const *s, int pos, char c)
+static size_t	ft_word_length(const char *s, char c)
 {
-	while (s[pos] == c)
-		pos++;
-	return (pos);
-}
+	unsigned int	i;
+	size_t			len;
 
-static int	word_length(char const *s, int pos, char c)
-{
-	int len;
-
+	i = 0;
 	len = 0;
-	while (s[pos + len] != c || s[pos + len] != '\0')
+	while (s[i] == c)
+		i++;
+	while (s[i] != c && s[i])
+	{
+		i++;
 		len++;
+	}
 	return (len);
 }
 
-static int	word(char **dst, char const *s, char c, int pos)
-{
-	int len;
-
-	len = word_length(s, pos, c);
-	*dst = ft_strsub(s, pos, len);
-	return (pos + len);
-}
-
-char		**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	char	**res;
-	int		pos;
-	int		i;
-	int		count;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
 	i = 0;
-	pos = 0;
-	if (!s)
+	k = 0;
+	if (!s || !(res = (char **)malloc(sizeof(char *)
+						* (ft_word_count(s, c) + 1))))
 		return (NULL);
-	count = word_count(s, c);
-	res = (char **)malloc(sizeof(char *) * (count + 1));
-	if (!res)
-		return (NULL);
-	while (i < count)
+	while (i < ft_word_count(s, c))
 	{
-		pos = position_next_word(s, pos, c);
-		pos = word(&res[i], s, c, pos);
+		if (!(res[i] = (char *)malloc(sizeof(char)
+						* (ft_word_length(&s[k], c) + 1))))
+			return (NULL);
+		j = 0;
+		while (s[k] == c)
+			k++;
+		while (s[k] != c && s[k])
+			res[i][j++] = s[k++];
+		res[i][j] = '\0';
 		i++;
 	}
-	res[i] = 0;
+	res[i] = NULL;
 	return (res);
 }
