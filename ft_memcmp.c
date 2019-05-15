@@ -6,7 +6,7 @@
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 12:49:46 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/14 17:05:01 by rquerino         ###   ########.fr       */
+/*   Updated: 2019/05/14 18:10:06 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	while (i < n)
 	{
 		if (*(ptr1 + i) != *(ptr2 + i))
-			return ((ptr1 + i) - (ptr2 + i));
+			return (*(ptr1 + i) - *(ptr2 + i));
 		i++;
 	}
 	if (i == n)
 		return (0);
-	return ((ptr1 + i) - (ptr2 + i));
+	return (*(ptr1 + i) - *(ptr2 + i));
 }
