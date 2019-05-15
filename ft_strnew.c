@@ -6,11 +6,16 @@
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 16:33:05 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/07 16:46:01 by rquerino         ###   ########.fr       */
+/*   Updated: 2019/05/15 10:47:20 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+ ** Allocates with malloc and returns a "fresh" string ending with '\0'.
+ ** Each character is initialized at '\0'. Returns the string.
+*/
 
 char	*ft_strnew(size_t size)
 {

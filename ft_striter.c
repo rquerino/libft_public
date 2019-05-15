@@ -6,11 +6,15 @@
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 17:00:52 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/12 12:33:31 by rquerino         ###   ########.fr       */
+/*   Updated: 2019/05/15 10:48:58 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+ ** Applies the function f to each character of the string s.
+*/
 
 void	ft_striter(char *s, void (*f)(char *))
 {

@@ -6,11 +6,15 @@
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 09:55:21 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/10 09:56:02 by rquerino         ###   ########.fr       */
+/*   Updated: 2019/05/15 11:47:54 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+ ** Outputs the char c to the standard output.
+*/
 
 void	ft_putchar(char c)
 {

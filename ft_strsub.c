@@ -6,11 +6,16 @@
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 17:55:33 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/11 16:08:44 by rquerino         ###   ########.fr       */
+/*   Updated: 2019/05/15 11:31:57 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+ ** Allocates with malloc and returns a fresh substring from the string s.
+ ** begins at start for len size.
+*/
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
@@ -25,9 +30,9 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	i = 0;
 	while (i < len)
 	{
-		sub[i] = s[start + i];
+		*(sub + i) = *(s + start + i);
 		i++;
 	}
-	sub[i] = '\0';
+	*(sub + i) = '\0';
 	return (sub);
 }

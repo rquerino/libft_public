@@ -6,11 +6,16 @@
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 11:51:11 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/14 15:40:53 by rquerino         ###   ########.fr       */
+/*   Updated: 2019/05/15 11:46:54 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+ ** Allocates with malloc and returns a "fresh" '\0' ending string
+ ** representing the int n.
+*/
 
 static int		ft_num_length(int n)
 {
@@ -38,15 +43,16 @@ char			*ft_itoa(int n)
 	len = ft_num_length(n);
 	if (!(str = ft_strnew(len)))
 		return (NULL);
-	str[len--] = '\0';
+	*(str + len--) = '\0';
 	while (len >= neg)
 	{
 		if (n < 0)
 			n *= -1;
-		str[len--] = n % 10 + '0';
+		*(str + len) = n % 10 + '0';
 		n /= 10;
+		len--;
 	}
 	if (neg)
-		str[0] = '-';
+		*(str + 0) = '-';
 	return (str);
 }

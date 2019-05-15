@@ -6,17 +6,24 @@
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 16:56:56 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/11 15:54:35 by rquerino         ###   ########.fr       */
+/*   Updated: 2019/05/15 10:58:32 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+ ** Sets every character of the string to the value '\0'.
+*/
+
 void	ft_strclr(char *s)
 {
-	while (*s)
+	int i;
+
+	i = 0;
+	while (*(s + i))
 	{
-		*s = 0;
-		s++;
+		*(s + i) = 0;
+		i++;
 	}
 }

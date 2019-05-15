@@ -6,11 +6,16 @@
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 17:30:05 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/11 15:58:58 by rquerino         ###   ########.fr       */
+/*   Updated: 2019/05/15 11:19:49 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+ ** Applies the function f to each character of the string s
+ ** using its index as first argumento to create a "fresh" string.
+*/
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -23,9 +28,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!new)
 		return (NULL);
 	i = 0;
-	while (s[i])
+	while (*(s + i))
 	{
-		new[i] = f(i, s[i]);
+		*(new + i) = f(i, *(s + i));
 		i++;
 	}
 	return (new);

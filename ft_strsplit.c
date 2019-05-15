@@ -6,11 +6,16 @@
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 10:49:54 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/14 11:17:18 by rquerino         ###   ########.fr       */
+/*   Updated: 2019/05/15 12:03:12 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+ ** Allocates with malloc and returns an array of "fresh" '\0' ending strings
+ ** obtained by spliting s using the char c as delimiter.
+*/
 
 static size_t	ft_word_count(const char *s, char c)
 {
@@ -19,11 +24,11 @@ static size_t	ft_word_count(const char *s, char c)
 
 	i = 0;
 	count = 0;
-	while (s[i])
+	while (*(s + i))
 	{
-		if (s[i] != c)
+		if (*(s + i) != c)
 			count++;
-		while (s[i] != c && s[i + 1])
+		while (*(s + i) != c && *(s + i + 1))
 			i++;
 		i++;
 	}
@@ -37,9 +42,9 @@ static size_t	ft_word_length(const char *s, char c)
 
 	i = 0;
 	len = 0;
-	while (s[i] == c)
+	while (*(s + i) == c)
 		i++;
-	while (s[i] != c && s[i])
+	while (*(s + i) != c && *(s + i))
 	{
 		i++;
 		len++;
@@ -65,13 +70,13 @@ char			**ft_strsplit(char const *s, char c)
 						* (ft_word_length(&s[k], c) + 1))))
 			return (NULL);
 		j = 0;
-		while (s[k] == c)
+		while (*(s + k) == c)
 			k++;
-		while (s[k] != c && s[k])
-			res[i][j++] = s[k++];
+		while (*(s + k) != c && *(s + k))
+			res[i][j++] = *(s + k++);
 		res[i][j] = '\0';
 		i++;
 	}
-	res[i] = NULL;
+	*(res + i) = NULL;
 	return (res);
 }
