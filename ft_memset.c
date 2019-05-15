@@ -6,11 +6,16 @@
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 16:00:09 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/14 10:52:13 by rquerino         ###   ########.fr       */
+/*   Updated: 2019/05/14 16:43:01 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+ ** Writes n bytes of value c (converted to an unsigned char) to the string s.
+ ** Returns the first argument.
+*/
 
 void	*ft_memset(void *s, int c, size_t n)
 {

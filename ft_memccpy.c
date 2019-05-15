@@ -6,11 +6,16 @@
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/05 12:23:17 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/12 12:44:50 by rquerino         ###   ########.fr       */
+/*   Updated: 2019/05/14 16:49:07 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+ ** Copies bytes from string src to string dst until the character c
+ ** (converted to unsigned char) occurs in the string src.
+*/
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
