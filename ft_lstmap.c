@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+/*
+ ** Iterates lst and applies the function f to each link to create
+ ** a "fresh" list using malloc.
+*/
+
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list *start;

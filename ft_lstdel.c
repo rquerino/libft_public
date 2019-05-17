@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+/*
+ ** Free the memory of the link and its successors using del() and free().
+ ** Then sets the pointer to NULL.
+*/
+
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
 	if (!alst || !*alst)
