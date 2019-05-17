@@ -12,10 +12,6 @@
 
 #include "libft.h"
 
-/*
- ** Adds the element new at the begining of the list.
-*/
-
 void	ft_lstadd(t_list **alst, t_list *new)
 {
 	t_list *a;

@@ -12,12 +12,6 @@
 
 #include "libft.h"
 
-/*
- ** Takes a link's pointer adress and frees its memory using del() then frees
- ** the link's memory using free(). The memory of next must not be freed. 
- ** The pointer to the freed link must be set to NULL.
-*/
-
 void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
 	if (alst && *alst)
