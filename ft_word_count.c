@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_word_count.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/07 16:56:56 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/16 13:47:42 by rquerino         ###   ########.fr       */
+/*   Created: 2019/05/16 16:31:36 by rquerino          #+#    #+#             */
+/*   Updated: 2019/05/16 16:40:36 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
- ** Sets every character of the string to the value '\0'.
+ ** Aux function to ft_strsplit. Counts how many words are in a string s
+ ** separated by a char c.
 */
 
-void	ft_strclr(char *s)
+size_t	ft_word_count(const char *s, char c)
 {
-	int i;
+	unsigned int	i;
+	size_t			count;
 
-	if (!s)
-		return ;
 	i = 0;
+	count = 0;
 	while (*(s + i))
 	{
-		*(s + i) = 0;
+		if (*(s + i) != c)
+			count++;
+		while (*(s + i) != c && *(s + i + 1))
+			i++;
 		i++;
 	}
+	return (count);
 }

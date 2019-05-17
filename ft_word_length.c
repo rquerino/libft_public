@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_word_length.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/07 16:56:56 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/16 13:47:42 by rquerino         ###   ########.fr       */
+/*   Created: 2019/05/16 16:40:45 by rquerino          #+#    #+#             */
+/*   Updated: 2019/05/16 16:51:36 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
- ** Sets every character of the string to the value '\0'.
+ ** Aux function to ft_strsplit. Gets the word length after the first
+ ** appearances of char c and before its next appearance.
 */
 
-void	ft_strclr(char *s)
+size_t	ft_word_length(const char *s, char c)
 {
-	int i;
+	unsigned int	i;
+	size_t			len;
 
-	if (!s)
-		return ;
 	i = 0;
-	while (*(s + i))
-	{
-		*(s + i) = 0;
+	len = 0;
+	while (*(s + i) == c)
 		i++;
+	while (*(s + i) != c && *(s + i))
+	{
+		i++;
+		len++;
 	}
+	return (len);
 }

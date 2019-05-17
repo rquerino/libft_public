@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/07 16:56:56 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/16 13:47:42 by rquerino         ###   ########.fr       */
+/*   Created: 2019/05/16 16:54:45 by rquerino          #+#    #+#             */
+/*   Updated: 2019/05/16 16:57:53 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
- ** Sets every character of the string to the value '\0'.
+ ** Checks if the character is space.
+ ** Returns 1 if it's a space, 0 if it's not.
 */
 
-void	ft_strclr(char *s)
+int		ft_isspace(int c)
 {
-	int i;
-
-	if (!s)
-		return ;
-	i = 0;
-	while (*(s + i))
-	{
-		*(s + i) = 0;
-		i++;
-	}
+	if (c == ' ' || c == '\n' || c == '\t'
+		|| c == '\v' || c == '\f' || c == '\r')
+		return (1);
+	return (0);
 }

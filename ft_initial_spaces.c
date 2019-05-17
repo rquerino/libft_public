@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_initial_spaces.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/07 16:56:56 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/16 13:47:42 by rquerino         ###   ########.fr       */
+/*   Created: 2019/05/16 17:03:37 by rquerino          #+#    #+#             */
+/*   Updated: 2019/05/16 17:06:15 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
- ** Sets every character of the string to the value '\0'.
+ ** Aux function to ft_strtrim. Counts how many spaces are at the start
+ ** of the string.
 */
 
-void	ft_strclr(char *s)
+int		ft_initial_spaces(char const *s)
 {
 	int i;
 
-	if (!s)
-		return ;
 	i = 0;
-	while (*(s + i))
-	{
-		*(s + i) = 0;
+	while (*(s + i) == ' ' || *(s + i) == '\n' || *(s + i) == '\t')
 		i++;
-	}
+	return (i);
 }

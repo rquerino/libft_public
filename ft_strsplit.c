@@ -6,7 +6,7 @@
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 10:49:54 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/15 12:03:12 by rquerino         ###   ########.fr       */
+/*   Updated: 2019/05/16 16:52:04 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,41 +16,6 @@
  ** Allocates with malloc and returns an array of "fresh" '\0' ending strings
  ** obtained by spliting s using the char c as delimiter.
 */
-
-static size_t	ft_word_count(const char *s, char c)
-{
-	unsigned int	i;
-	size_t			count;
-
-	i = 0;
-	count = 0;
-	while (*(s + i))
-	{
-		if (*(s + i) != c)
-			count++;
-		while (*(s + i) != c && *(s + i + 1))
-			i++;
-		i++;
-	}
-	return (count);
-}
-
-static size_t	ft_word_length(const char *s, char c)
-{
-	unsigned int	i;
-	size_t			len;
-
-	i = 0;
-	len = 0;
-	while (*(s + i) == c)
-		i++;
-	while (*(s + i) != c && *(s + i))
-	{
-		i++;
-		len++;
-	}
-	return (len);
-}
 
 char			**ft_strsplit(char const *s, char c)
 {

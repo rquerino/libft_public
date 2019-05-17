@@ -6,7 +6,7 @@
 #    By: rquerino <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/11 16:57:46 by rquerino          #+#    #+#              #
-#    Updated: 2019/05/12 12:11:43 by rquerino         ###   ########.fr        #
+#    Updated: 2019/05/16 17:34:06 by rquerino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,12 @@ FILES = ft_atoi.c \
 		ft_strsub.c \
 		ft_strtrim.c \
 		ft_tolower.c \
-		ft_toupper.c
+		ft_toupper.c \
+		ft_isspace.c \
+		ft_initial_spaces.c \
+		ft_final_spaces.c \
+		ft_word_count.c \
+		ft_word_length.c
 OBJ =	$(FILES:%.c=%.o)
 
 all : $(NAME)

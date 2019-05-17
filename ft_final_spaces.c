@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_final_spaces.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rquerino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/07 16:56:56 by rquerino          #+#    #+#             */
-/*   Updated: 2019/05/16 13:47:42 by rquerino         ###   ########.fr       */
+/*   Created: 2019/05/16 17:06:24 by rquerino          #+#    #+#             */
+/*   Updated: 2019/05/16 17:34:37 by rquerino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
- ** Sets every character of the string to the value '\0'.
+ ** Aux function to ft_strtrim. Returns the last position without a space
+ ** at the end of string s.
 */
 
-void	ft_strclr(char *s)
+int		ft_final_spaces(char const *s)
 {
-	int i;
+	int j;
 
-	if (!s)
-		return ;
-	i = 0;
-	while (*(s + i))
-	{
-		*(s + i) = 0;
-		i++;
-	}
+	j = ft_strlen(s);
+	if (j == 0)
+		return (0);
+	while (j > 0 && (*(s + j - 1) == ' ' || *(s + j - 1) == '\n'
+			|| *(s + j - 1) == '\t'))
+		j--;
+	return (j);
 }
