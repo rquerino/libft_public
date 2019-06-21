@@ -76,7 +76,8 @@ FILES = ft_atoi.c \
 		ft_initial_spaces.c \
 		ft_final_spaces.c \
 		ft_word_count.c \
-		ft_word_length.c
+		ft_word_length.c \
+		get_next_line.c
 OBJ =	$(FILES:%.c=%.o)
 
 all : $(NAME)
